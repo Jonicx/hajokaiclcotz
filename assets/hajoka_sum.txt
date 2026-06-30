@@ -139,3 +139,5 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/Jonicx/hajokaiclcotz.git
 git push -u origin main
+
+Github Personal access tokens classic: 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

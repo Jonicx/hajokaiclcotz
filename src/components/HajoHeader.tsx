@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef  } from 'react';
 import { Sun, Moon, Menu, X, Landmark, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import logo from '../../assets/hajoka-logo-transparent.png';
@@ -11,40 +11,88 @@ interface HajoHeaderProps {
   setActiveSection: (sec: string) => void;
 }
 
-export default function HajoHeader({ darkMode, setDarkMode, activeSection, setActiveSection }: HajoHeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = [
+    const navItems = [
     { id: 'home', label: 'Home', swahili: 'Mwanzo' },
     { id: 'about', label: 'About Us', swahili: 'Kuhusu Sisi' },
     { id: 'services', label: 'Services', swahili: 'Huduma' },
     { id: 'projects', label: 'Projects', swahili: 'Miradi' },
     { id: 'contact', label: 'Contact', swahili: 'Mawasiliano' },
-  ];
+  ]; 
+  
+export default function HajoHeader({ darkMode, setDarkMode, activeSection, setActiveSection }: HajoHeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  // FEATURE: Smart Scroll Direction Tracking
+  const [showHeader, setShowHeader] = useState(true);
+  const lastScrollY = useRef(0);
 
-const handleNavSelect = (sectionId: string) => {
-  setActiveSection(sectionId);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-  requestAnimationFrame(() => {
+ 
+
+      // 2. Determine scroll direction logic
+      if (currentScrollY > lastScrollY.current && currentScrollY > 0) {
+        // Scrolling Down & past the header height -> Hide Header
+        setShowHeader(false);
+        // Force mobile menu closed if they scroll down away from it
+        setMobileMenuOpen(false); 
+      } else {
+        // Scrolling Up -> Reveal Header smoothly
+        setShowHeader(true);
+      }
+
+      // Update the reference value for the next scroll frame
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // FEATURE: Body Scroll Locking
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // FEATURE: Smooth Scrolling Logic
+  const handleNavSelect = (sectionId: string) => {
+    setActiveSection(sectionId);
     setMobileMenuOpen(false);
-  });
-};
+
+    const targetElement = document.getElementById(sectionId);
+    if (targetElement) {
+      const headerOffset = 100; 
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
 
   return (
-     <header className={`sticky top-5 z-50 transition-all duration-300 ${
+    // Modified header element with conditional translate-y transforms for fluid transitions
+    <header className={`sticky top-5 z-50 transition-all duration-500 ease-in-out ${
+      showHeader ? 'translate-y-0 opacity-100' : '-translate-y-28 opacity-0 pointer-events-none'
+    } ${
       isScrolled 
         ? darkMode 
-          ? 'bg-slate-950/80 border-b border-slate-900/80 backdrop-blur-md shadow-lg shadow-slate-950/20' 
-          : 'bg-white/80 border-b border-slate-200/50 backdrop-blur-md shadow-sm shadow-slate-100/30'
+          ? ' backdrop-blur-xl shadow-md shadow-slate-950/30' 
+          : ' backdrop-blur-xl shadow-md shadow-slate-400/90'
         : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,7 +171,7 @@ const handleNavSelect = (sectionId: string) => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className={`absolute top-full left-4 right-4 mt-2 p-4 rounded-2xl border shadow-xl md:hidden flex flex-col gap-2 z-50 ${
+            className={`absolute top-full left-4 right-4 mt-2 p-4 rounded-2xl border shadow-xl md:hidden flex flex-col gap-2 z-50 max-h-[calc(100vh-120px)] overflow-y-auto ${
               darkMode ? 'bg-slate-950 border-slate-900 text-white' : 'bg-white border-slate-200 text-slate-900'
             }`}
           >

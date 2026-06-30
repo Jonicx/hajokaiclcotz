@@ -107,6 +107,9 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                 >
                   {/* Card Image Stage */}
                   <div className="aspect-14/10 overflow-hidden relative">
+                    
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-linear-to-b from-slate-950/90 via-transparent to-transparent pointer-events-none" />
                     <img 
                       src={p.image} 
                       alt={p.title} 
@@ -115,7 +118,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                     />
                     
                     {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-gray-950/90 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent pointer-events-none" />
 
                     {/* Left Tag: Project status badge */}
                     <div className="absolute top-4 left-4 flex gap-2">
@@ -152,7 +155,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                         <span>Contractor Registered</span>
                       </div>
                       
-                      <h3 className={`font-display font-bold text-base text-slate-950 dark:text-white  leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                      <h3 className={`font-display font-bold text-base text-slate-950 p-2 dark:text-white  leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                         {p.title}
                       </h3>
                     </div>

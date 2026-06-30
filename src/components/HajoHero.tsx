@@ -1,7 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import sewageControl from "../../assets/Process-Plant-North.png";
-import { relative } from "path";
 
 interface HajoHeroProps {
   darkMode: boolean;
@@ -73,7 +72,7 @@ const itemVariants: Variants = {
             {/* Main Bold Heading with uniform typography & color coordination */}
             <motion.h1 
               variants={itemVariants}
-              className={`font-display font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-tight mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}
+              className={`font-display font-bold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-tight mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}
             >
               Building Tanzania&apos;s <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-500 via-amber-400 to-amber-600">
@@ -102,24 +101,23 @@ const itemVariants: Variants = {
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            <motion.div variants={itemVariants} className="flex flex-row sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               <button
                 onClick={() => setActiveSection('projects')}
                 className="px-6 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-sans font-extrabold uppercase tracking-wider text-xs rounded-xl shadow-md shadow-amber-500/10 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer active:scale-95"
               >
                 Our Projects / Miradi Yetu
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               
               <button
                 onClick={() => setActiveSection('about')}
-                className={`px-6 py-4 font-sans font-extrabold uppercase tracking-wider text-xs rounded-xl border transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
+                className={`px-6 py-4 font-sans font-extrabold uppercase tracking-wider text-xs rounded-xl border-2 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
                   darkMode 
-                    ? 'bg-slate-900/40 hover:bg-slate-900 border-slate-800 text-slate-200 hover:text-white' 
-                    : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:text-slate-900'
+                    ? 'bg-slate-900/40 hover:bg-slate-900 border-amber-500 text-slate-200 hover:text-white' 
+                    : 'bg-white hover:bg-slate-50 border-amber-500 text-slate-700 hover:text-slate-900'
                 }`}
               >
-                Company Story
+                Our Story / hadithi yetu
               </button>
             </motion.div>
 

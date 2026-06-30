@@ -74,15 +74,15 @@ export default function HajoBackground({ darkMode, activeSection }: HajoBackgrou
       {/* 1. Slow Organic Blurring Blobs representing Savannah Sky and earth colors */}
       <motion.div 
         style={{ rotate: rotateValue, x: driftValue }}
-        className={`absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob1}`}
+        className={`absolute top-[10%] left-[10%] w-[50%] h-[50%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob1}`}
       />
       <motion.div 
         style={{ y: driftValue, rotate: rotateValue }}
-        className={`absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob2}`}
+        className={`absolute top-[40%] right-[10%] w-[60%] h-[60%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob2}`}
       />
       <motion.div 
         style={{ x: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
-        className={`absolute -bottom-[10%] left-[20%] w-[45%] h-[45%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob3}`}
+        className={`absolute bottom-[10%] left-[20%] w-[45%] h-[45%] rounded-full blur-3xl transition-colors duration-1000 ${blobConfigs.blob3}`}
       />
 
       {/* 2. Structured Line Grids (Engineering Blueprint Overlay) */}
@@ -93,37 +93,56 @@ export default function HajoBackground({ darkMode, activeSection }: HajoBackgrou
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <motion.line 
             x1="0" y1="0" x2="100%" y2="100%" 
-            stroke={darkMode ? "rgba(251, 191, 36, 0.4)" : "rgba(245, 158, 11, 0.6)"} 
-            strokeWidth="1"
+            stroke={darkMode ? "rgba(251, 191, 36, 0.2)" : "rgba(245, 158, 11, 0.9)"} 
+            strokeWidth="3"
             animate={{ strokeDashoffset: [0, 100] }}
             transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             strokeDasharray="10 15"
           />
           <motion.line 
-            x1="100%" y1="0" x2="0" y2="100%" 
-            stroke={darkMode ? "rgba(251, 191, 36, 0.4)" : "rgba(245, 158, 11, 0.6)"} 
-            strokeWidth="1"
+            x1= "50%" y1="0" x2="100%" y2="50%" 
+            stroke={darkMode ? "rgba(251, 191, 36, 0.2)" : "rgba(245, 158, 11, 0.9)"} 
+            strokeWidth="4"
+            animate={{ strokeDashoffset: [100, 0] }}
+            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+            strokeDasharray="10 20"
+          />
+
+          <motion.line 
+            x1="50%" y1="50%" x2="0" y2="100%" 
+            stroke={darkMode ? "rgba(251, 191, 36, 0.2)" : "rgba(245, 158, 11, 0.9)"} 
+            strokeWidth="2"
             animate={{ strokeDashoffset: [100, 0] }}
             transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
             strokeDasharray="8 20"
           />
+
+          <motion.line 
+            x1="0" y1="50%" x2="50%" y2="50%" 
+            stroke={darkMode ? "rgba(251, 191, 36, 0.2)" : "rgba(245, 158, 11, 0.9)"} 
+            strokeWidth="4"
+            animate={{ strokeDashoffset: [100, 0] }}
+            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+            strokeDasharray="8 20"
+          />
+
         </svg>
       </div>
 
       {/* 3. Subtle floating dust motes or sparkles representing sparks from steel cutting & dust from construction */}
       <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-1 w-1 rounded-full bg-amber-400/100 dark:bg-amber-400/100"
+            className="absolute h-1 w-1 rounded-full bg-amber-400 dark:bg-amber-400"
             style={{
               top: `${15 + i * 15}%`,
               left: `${10 + (i * 23) % 80}%`,
             }}
             animate={{
               y: [0, -30, 0],
-              x: [0, (i % 2 === 0 ? 15 : -15), 0],
-              opacity: [0.2, 0.7, 0.2],
+              x: [0, (i % 2 === 0 ? 25 : -15), 0],
+              opacity: [0.2, 0.7, 0.4],
               scale: [1, 1.5, 1],
             }}
             transition={{
