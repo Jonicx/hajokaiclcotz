@@ -1,0 +1,141 @@
+Company Overview
+
+Hajoka International Company Limited (HIC LTD) is an integrative international company 
+incorporated on 17th August, 2012 with the certificate of incorporation number 93083 of 
+Tanzania jurisdiction with the headquarters in Kahama, and other branches in North Mara 
+and Geita  in the United Republic of Tanzania.
+HIC LTD, among other objectives is mainly registered to undertake and executes Mechanical, 
+Civil Engineering and Environment Control Contract Works. HIC LTD is registered under 
+Contractors Registration Board (CRB) with Registration Numbers M5/37/10/2015 and 
+C5/823/10/2015.
+
+
+
+
+Our Mission
+
+To continue being an efficient Contractor working in an ethical and balanced manner to 
+earn the privilege of being the Contractor of choice.
+We are committed to maintaining excellence, respect, and integrity in all aspects of our 
+operations, professional and business conduct. We strive to reflect the highest ethical 
+standards in our relationships with members, providers, and shareholders.
+
+
+
+
+Our Vision
+
+Our Vision is to provide excellent services that exceed the expectations of our esteemed customers.
+
+
+---------------------------------------------------------------------------------------------
+
+Our Services
+
+At HIC LTD, we tailor our services to the individual needs of our diverse clientele. 
+By focusing specifically on your project, we make sure ourservices fit both your overall 
+needs and long-term vision. The reliable opeartions and steadfast dedication of our Engineering
+and Environment services produce immediate, and long-term, sustainable success where your 
+goals and visions are realized.
+
+This combination makes us the company of choice time and again for clients throughout 
+United Republic of Tanzania. Our commitment to accountability, safety, Integrity and 
+innovation is a natural extension of the tradition and value that comprises what we call 
+‘The Perfect Experience’. Please take a look at our services to learn more about why we are 
+the perfect contractor for you.
+
+
+Mechanical Engineering:
+
+Whether your project involves a failure analysis of a mechanical component, or new 
+component design, engineering a new system or resolving problems in an existing one, 
+evaluating the stresses in an existing component or designing a new one for long term, 
+trouble free lifecycle, we offer these and more services to solve your challenges. Our 
+team of Engineers has a longterm experience that will bring the best out of your project.
+Our mechanical engineering services find acceptance across multiple industry verticals. 
+Some of our most popular clients belong to Mining, Automotive, Marine and Shipping, 
+Telecommunication, Oil & Gas, Transportation and Logistics.
+
+
+Civil Engineering:
+
+With modern fleets, technology and a dedicated team in our projects, Construction Services 
+partners with our clients from urban centers to remote locations. We Construct or Maintain 
+Roadways, Water reservoirs, Buildings, Bridges, Airports, Dams and Tunnels.We are a fully 
+integrated infrastructure firm that can construct anything.
+
+The world’s infrastructure is not keeping pace with current demand. Solving this complex 
+challenge requires an organization steeped in experience and primed for the future. Our 
+construction experts integrate the best practices from the last century into the technologies 
+defining our industry today.
+
+Through several strategic acquisitions over the last years, we’ve best positioned ourselves 
+to serve a diverse range of clients.
+
+
+Environment Control:
+
+Our environmentally responsible approach can be both cost effective and quality enhancing. 
+Our Earth friendly practices provide a wide range of options for your facility needs.  
+We manage the interaction and impact of human activities on the natural environment. 
+In so doing, we offer environmental management services such as sewage disposal; scrap 
+(waste metals) disposal and recycling, waste disposal, water waste management and 
+rehabilitation.
+
+HIC LTD is certified and complies with OSHA in the United Republic of Tanzania.
+
+
+-----------------------------------------------------------------------------------------
+Why choose us
+
+We provide our clients with the satisfaction of knowing their projects are being done on 
+time, under budget and in a safe work environment.
+
+Accountability:
+We acknowledge and assume responsibility for actions, products, decisions, and policies. 
+It can be applied to both individual employees and accountability of the company as a 
+whole.
+
+Safety:
+We ensure the health and safety of employees and going beyond the legal requirements to
+provide an accident-free workplace.
+
+Integrity:
+We act with honesty and honor without compromising the truth.
+
+Innovation:
+We pursue new creative ideas that have the potential to our company
+
+
+---------------------------------------------------------------------
+1.Plant Structural Refurbishment, Bulyanhulu Gold Mine (Acacia)
+2.Road formation and Maintenance, Kahama & Ushetu Districts (Tarura)
+3.Construction of Batch Plant, Geita Gold Mine (AnglogoldAshanti)
+4.Sewage & Hydrocarbon Control, Bulyanhulu Gold Mine (Acacia)
+5.Structural and Tanks Corosion Control, Buzwagi Gold Mine (Acacia)
+6.Crane Steel Structure assembling, North Mara Gold Mine (Acacia)
+------------------------------------------------------------------
+
+Services
+
+Mechanical Engineering
+Civil Engineering
+Environment Control
+----------------------------------------------------------------------
+
+Contact Info
+
+Address: P.O. Box 1013, Kahama/Tanzania.   Mwendakulima, D4N Building  
+Phone: +255 763 778 863  
+Email: info@hajokaicl.co.tz  
+Web: www.hajokaicl.co.tz
+
+<button type="button" class=" relative flex items-center justify-between w-full px-4 py-3 rounded-xl font-sans text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white hover:bg-slate-900/50" id="nav-projects"><span>Projects</span><span class="text-[10px] font-mono lowercase tracking-normal text-slate-400">Miradi</span></button>
+
+echo "# hajokaiclcotz" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Jonicx/hajokaiclcotz.git
+git push -u origin main
