@@ -86,7 +86,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-2 mb-20">
+        <div className="items-start grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-2 mb-20">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((p) => {
               const isExpanded = selectedProj === p.id;
@@ -98,8 +98,8 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className={`rounded-2xl border overflow-hidden flex flex-col h-full transition-all duration-300 ${
+                  transition={{ duration: 0.4, ease: "easeInOut"}}
+                  className={`h-fit rounded-2xl border overflow-hidden flex flex-col transition-all duration-300 z-20 ${
                     darkMode 
                       ? 'bg-slate-900/40 border-slate-800 hover:border-amber-500/20' 
                       : 'bg-white border-slate-200 hover:shadow-lg'
@@ -123,7 +123,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                     {/* Left Tag: Project status badge */}
                     <div className="absolute top-4 left-4 flex gap-2">
                           
-                      <span className="px-2.5 bg-amber-900/80 border-amber-300/90 text-amber-400 py-1 text-[9px] font-bold uppercase tracking-wider  rounded-lg border " >
+                      <span className="p-2 bg-amber-900/80 border-amber-300/90 text-amber-400 py-1 text-[9px] font-bold uppercase tracking-wider  rounded-lg border " >
                         {p.status}
                       </span>
                     </div>
@@ -148,20 +148,20 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                   {/* Card Content Stage */}
                   <div className="p-5 flex-1 flex flex-col justify-between ">
                     <div>
-                      <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-2">
+                      <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
                         <span className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" /> Year: {p.year}
+                          <Calendar className="h-3 w-3" /> Year:{p.year}
                         </span>
                         <span>Contractor Registered</span>
                       </div>
                       
-                      <h3 className={`font-display font-bold text-base text-slate-950 p-2 dark:text-white  leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                      <h3 className={`font-display font-bold text-base leading-tight truncate ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                         {p.title}
                       </h3>
                     </div>
 
                     {/* Dynamic Accordion list for scope */}
-                    <div className="mt-4">
+                    <div className="mt-2">
                       <button
                         onClick={() => setSelectedProj(isExpanded ? null : p.id)}
                         className={`w-full py-2.5 px-3 rounded-lg border text-xs font-bold uppercase tracking-wider flex items-center justify-between transition-all cursor-pointer ${
@@ -186,7 +186,8 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="overflow-hidden mt-3"
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="overflow-hidden mt-2 z-40"
                           >
                             <ul className={`text-xs space-y-2 p-3 rounded-xl border font-medium ${
                               darkMode ? 'bg-slate-950/60 border-slate-850/80 text-slate-300' : 'bg-slate-50 border-slate-150/80 text-slate-600'

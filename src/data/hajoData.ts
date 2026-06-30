@@ -62,6 +62,21 @@ export const HAJO_SERVICES: HajoService[] = [
 export const HAJO_PROJECTS: HajoProject[] = [
   {
     id: 'proj-1',
+    title: 'Construction Of A Batch Plant',
+    location: 'Geita Gold Mine',
+    category: 'building',
+    year: '2023',
+    status: 'AnglogoldAshanti',
+    image: 'assets/Construction-of-Batch-Plant.png',
+    scope: [
+      '120ft Batch Plant High-end Frame',
+      'Custom Sun-Shading African Motif Screen',
+      'Complete Waste Layout and Recycling',
+      'Complete HVAC and High-Speed Fiber Layout',
+    ]
+  },
+  {
+    id: 'proj-2',
     title: 'Road formation & Maintenance',
     location: 'Kahama & Ushetu Districts',
     category: 'roads',
@@ -76,7 +91,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     ]
   },
   {
-    id: 'proj-2',
+    id: 'proj-3',
     title: 'Plant Structural Refurbishment',
     location: 'Bulyanhulu Gold Mine',
     category: 'building',
@@ -90,21 +105,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
       'Complete HVAC and High-Speed Fiber Layout',
     ]
   },
-  {
-    id: 'proj-3',
-    title: 'Construction Of A Batch Plant',
-    location: 'Geita Gold Mine',
-    category: 'building',
-    year: '2023',
-    status: 'AnglogoldAshanti',
-    image: 'assets/Construction-of-Batch-Plant.png',
-    scope: [
-      '120ft Batch Plant High-end Frame',
-      'Custom Sun-Shading African Motif Screen',
-      'Complete Waste Layout and Recycling',
-      'Complete HVAC and High-Speed Fiber Layout',
-    ]
-  },
+
     {
     id: 'proj-4',
     title: 'Structural & Tanks Corosion',
