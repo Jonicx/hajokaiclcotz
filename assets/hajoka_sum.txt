@@ -129,15 +129,3 @@ Address: P.O. Box 1013, Kahama/Tanzania.   Mwendakulima, D4N Building
 Phone: +255 763 778 863  
 Email: info@hajokaicl.co.tz  
 Web: www.hajokaicl.co.tz
-
-<button type="button" class=" relative flex items-center justify-between w-full px-4 py-3 rounded-xl font-sans text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white hover:bg-slate-900/50" id="nav-projects"><span>Projects</span><span class="text-[10px] font-mono lowercase tracking-normal text-slate-400">Miradi</span></button>
-
-echo "# hajokaiclcotz" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Jonicx/hajokaiclcotz.git
-git push -u origin main
-
-Github Personal access tokens classic: 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
