@@ -2,8 +2,11 @@ import { motion, type Variants } from "motion/react";
 import { Target, Users, Landmark, Award } from 'lucide-react';
 import { HAJO_MILESTONES } from '../data/hajoData';
 import itemVariants from "../components/HajoHero"
+import mechanicalEngineer from "../../assets/Mechanical-Engineer.webp";
+
+
 interface HajoAboutProps {
-  darkMode: boolean;
+  darkMode: boolean; 
 }
 
 export default function HajoAbout({ darkMode }: HajoAboutProps) {
@@ -54,7 +57,7 @@ export default function HajoAbout({ darkMode }: HajoAboutProps) {
               <div className="absolute inset-0 bg-linear-to-b from-amber-400 via-transparent to-transparent pointer-events-none" />
               <div className="aspect-12/14 lg:aspect-12/10 overflow-hidden rounded-xl">
                 <img 
-                  src="/hajokaiclcotz/assets/Mechanical-Engineer.webp" 
+                  src={mechanicalEngineer} 
                   alt="Registered Tanzanian Mechanical engineer at work" 
                   className="object-cover scale-x-[-1] w-full h-full transform hover:scale-103 transition-all duration-700"
                   referrerPolicy="no-referrer"
