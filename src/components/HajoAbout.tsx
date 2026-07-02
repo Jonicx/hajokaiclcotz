@@ -54,7 +54,7 @@ export default function HajoAbout({ darkMode }: HajoAboutProps) {
               <div className="absolute inset-0 bg-linear-to-b from-amber-400 via-transparent to-transparent pointer-events-none" />
               <div className="aspect-12/14 lg:aspect-12/10 overflow-hidden rounded-xl">
                 <img 
-                  src="assets/Mechanical-Engineer.webp" 
+                  src="/hajokaiclcotz/assets/Mechanical-Engineer.webp" 
                   alt="Registered Tanzanian Mechanical engineer at work" 
                   className="object-cover scale-x-[-1] w-full h-full transform hover:scale-103 transition-all duration-700"
                   referrerPolicy="no-referrer"
