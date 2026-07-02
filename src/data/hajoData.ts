@@ -1,10 +1,10 @@
 import { HajoService, HajoProject, HajoMilestone } from '../types';
-import batchPlantImg from '../assets/Construction-of-Batch-Plant.webp';
-import roadFormationImg from '../assets/Road-formation-kahama.webp';
-import processPlantImg from '../assets/Process-Plant-North.webp';
-import structuralTanksImg from '../assets/Structural-tanks-corosion-control.webp';
-import sewageImg from '../assets/sewage-hydrocarbon-control.webp';
-import craneSteelImg from '../assets/Crane-Steel-Structure-Assembling.webp';
+import batchPlantImg from '../../assets/Construction-of-Batch-Plant.webp';
+import roadFormationImg from '../../assets/Road-formation-kahama.webp';
+import processPlantImg from '../../assets/Process-Plant-North.webp';
+import structuralTanksImg from '../../assets/Structural-tanks-corosion-control.webp';
+import sewageImg from '../../assets/sewage-hydrocarbon-control.webp';
+import craneSteelImg from '../../assets/Crane-Steel-Structure-Assembling.webp';
 
 export const HAJO_SERVICES: HajoService[] = [
   {
