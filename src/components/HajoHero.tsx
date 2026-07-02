@@ -1,6 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ShieldCheck } from 'lucide-react';
-import sewageControl from "../../assets/Process-Plant-North.png";
+import processPlant from "../../assets/Process-Plant-North.webp";
 
 interface HajoHeroProps {
   darkMode: boolean;
@@ -187,7 +187,7 @@ const itemVariants: Variants = {
               {/* Main Image Stage */}
               <div className="aspect-4/3 w-full overflow-hidden relative rounded-xl">
                 <img 
-                  src={sewageControl} 
+                  src={processPlant} 
                   alt="HAJOKA ICL processing Plant Structural Refurbishment, Bulyanhulu Gold Mine (Acacia), picture taken on site in Tanzania" 
                   className="object-cover w-full h-full transform hover:scale-102 transition-transform duration-700"
                   referrerPolicy="no-referrer"

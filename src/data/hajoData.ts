@@ -67,7 +67,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'building',
     year: '2023',
     status: 'AnglogoldAshanti',
-    image: 'assets/Construction-of-Batch-Plant.png',
+    image: 'assets/Construction-of-Batch-Plant.webp',
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -82,7 +82,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'roads',
     year: '2026',
     status: 'Tarura',
-    image: 'assets/road-formation-kahama.png',
+    image: 'assets/Road-formation-kahama.webp',
     scope: [
       '45km Asphalt Paving & Shoulder Widening',
       'Installation of 12 Major Double Box Culverts',
@@ -97,7 +97,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'building',
     year: '2025',
     status: 'Acacia',
-    image: 'assets/Process-Plant-North.png',
+    image: 'assets/Process-Plant-North.webp',
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -113,7 +113,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'water',
     year: '2024',
     status: 'Acacia',
-    image: 'assets/Structural-tanks-corosion-control.png',
+    image: 'assets/Structural-tanks-corosion-control.webp',
     scope: [
       'Main Water Control For Sanitary and Saftey',
       '2-Million Litre Reinforced Concrete Reservoir -- Ref',
@@ -128,11 +128,24 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'water',
     year: '2022',
     status: 'Acacia',
-    image: 'assets/sewage-hydrocarbon-control.png',
+    image: 'assets/sewage-hydrocarbon-control.webp',
     scope: [
       '100km Sewage and waste water Pipeline',
       'Solar-Powered Intake Station with telemetry controls',
       'Local Community Technical Skills Training'
+    ]
+  },
+  {
+    id: 'proj-6',
+    title: 'Crane Steel Structure Assembling',
+    location: 'Bulyanhulu Gold Mine',
+    category: 'building',
+    year: '2020',
+    status: 'Acacia',
+    image: 'assets/Crane-Steel-Structure-Assembling.webp',
+    scope: [
+      '1000-ton Crane Steel Structure Assembling',
+      'Heavy machinery and equipment installation',
     ]
   }
 ];
