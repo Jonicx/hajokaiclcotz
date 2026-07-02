@@ -1,4 +1,10 @@
 import { HajoService, HajoProject, HajoMilestone } from '../types';
+import batchPlantImg from '../assets/Construction-of-Batch-Plant.webp';
+import roadFormationImg from '../assets/Road-formation-kahama.webp';
+import processPlantImg from '../assets/Process-Plant-North.webp';
+import structuralTanksImg from '../assets/Structural-tanks-corosion-control.webp';
+import sewageImg from '../assets/sewage-hydrocarbon-control.webp';
+import craneSteelImg from '../assets/Crane-Steel-Structure-Assembling.webp';
 
 export const HAJO_SERVICES: HajoService[] = [
   {
@@ -67,7 +73,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'building',
     year: '2023',
     status: 'AnglogoldAshanti',
-    image: '/hajokaiclcotz/assets/Construction-of-Batch-Plant.webp',
+    image: batchPlantImg,
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -82,7 +88,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'roads',
     year: '2026',
     status: 'Tarura',
-    image: '/hajokaiclcotz/assets/Road-formation-kahama.webp',
+    image: roadFormationImg,
     scope: [
       '45km Asphalt Paving & Shoulder Widening',
       'Installation of 12 Major Double Box Culverts',
@@ -97,7 +103,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'building',
     year: '2025',
     status: 'Acacia',
-    image: '/hajokaiclcotz/assets/Process-Plant-North.webp',
+    image: processPlantImg,
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -113,7 +119,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'water',
     year: '2024',
     status: 'Acacia',
-    image: '/hajokaiclcotz/assets/Structural-tanks-corosion-control.webp',
+    image: structuralTanksImg,
     scope: [
       'Main Water Control For Sanitary and Saftey',
       '2-Million Litre Reinforced Concrete Reservoir -- Ref',
@@ -128,7 +134,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'water',
     year: '2022',
     status: 'Acacia',
-    image: '/hajokaiclcotz/assets/sewage-hydrocarbon-control.webp',
+    image: sewageImg,
     scope: [
       '100km Sewage and waste water Pipeline',
       'Solar-Powered Intake Station with telemetry controls',
@@ -142,7 +148,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     category: 'building',
     year: '2020',
     status: 'Acacia',
-    image: '/hajokaiclcotz/assets/Crane-Steel-Structure-Assembling.webp',
+    image: craneSteelImg,
     scope: [
       '1000-ton Crane Steel Structure Assembling',
       'Heavy machinery and equipment installation',
