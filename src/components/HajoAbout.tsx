@@ -1,7 +1,6 @@
-import { motion, type Variants } from "motion/react";
-import { Target, Users, Landmark, Award } from 'lucide-react';
+import { motion } from "motion/react";
+import { Target, Users, Award } from 'lucide-react';
 import { HAJO_MILESTONES } from '../data/hajoData';
-import itemVariants from "../components/HajoHero"
 import mechanicalEngineer from "../../assets/Mechanical-Engineer.webp";
 
 
