@@ -14,8 +14,11 @@ export interface HajoProject {
   location: string;
   category: 'civil' | 'building' | 'roads' | 'water';
   year: string;
-  status: 'Tarura' | 'Acacia' | 'AnglogoldAshanti' ;
+  status: 'Tarura' | 'Acacia' | 'AnglogoldAshanti' | 'HAJOKA' ;
   image: string;
+  image2: string;
+  image3: string;
+  video: string;
   scope: string[];
 }
 

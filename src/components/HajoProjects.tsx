@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, MapPin, ClipboardList, TrendingUp, Sliders, Info, HardHat } from 'lucide-react';
+import { Calendar, MapPin, ClipboardList, TrendingUp, Sliders, Info, HardHat, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { HAJO_PROJECTS } from '../data/hajoData';
 
 interface HajoProjectsProps {
@@ -10,6 +10,7 @@ interface HajoProjectsProps {
 export default function HajoProjects({ darkMode }: HajoProjectsProps) {
   const [filter, setFilter] = useState<string>('all');
   const [selectedProj, setSelectedProj] = useState<string | null>(null);
+  const [imageIndex, setImageIndex] = useState<{[key: string]: number}>({});
 
   // Simple simulator state
   const [simSector, setSimSector] = useState<'roads' | 'building' | 'water'>('roads');
@@ -19,6 +20,40 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
   const filteredProjects = filter === 'all' 
     ? HAJO_PROJECTS 
     : HAJO_PROJECTS.filter(p => p.category === filter);
+
+  // Get available media for a project
+  const getProjectMedia = (project: typeof HAJO_PROJECTS[0]) => {
+    const media = [{ type: 'image', src: project.image }];
+    if (project.image2) media.push({ type: 'image', src: project.image2 });
+    if (project.image3) media.push({ type: 'image', src: project.image3 });
+    if (project.video) media.push({ type: 'video', src: project.video });
+    return media;
+  };
+
+  // Get current media for a project
+  const getCurrentMedia = (projectId: string, project: typeof HAJO_PROJECTS[0]) => {
+    const media = getProjectMedia(project);
+    const currentIdx = imageIndex[projectId] || 0;
+    return media[currentIdx];
+  };
+
+  // Navigate to next media
+  const goToNextMedia = (projectId: string, project: typeof HAJO_PROJECTS[0]) => {
+    const media = getProjectMedia(project);
+    setImageIndex(prev => ({
+      ...prev,
+      [projectId]: (prev[projectId] || 0) + 1 >= media.length ? 0 : (prev[projectId] || 0) + 1
+    }));
+  };
+
+  // Navigate to previous media
+  const goToPrevMedia = (projectId: string, project: typeof HAJO_PROJECTS[0]) => {
+    const media = getProjectMedia(project);
+    setImageIndex(prev => ({
+      ...prev,
+      [projectId]: (prev[projectId] || 0) - 1 < 0 ? media.length - 1 : (prev[projectId] || 0) - 1
+    }));
+  };
 
   // Simulator logic (completely client-side and immediate)
   const calculateEstimate = () => {
@@ -100,30 +135,88 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: "easeInOut"}}
                   className={`h-fit rounded-2xl border overflow-hidden flex flex-col transition-all duration-300 z-20 ${
-                    darkMode 
+                    p.status === 'HAJOKA'
+                      ? 'neon-border-animation'
+                      : darkMode 
                       ? 'bg-slate-900/40 border-slate-800 hover:border-amber-500/20' 
                       : 'bg-white border-slate-200 hover:shadow-lg'
                   }`}
                 >
                   {/* Card Image Stage */}
-                  <div className="aspect-14/10 overflow-hidden relative">
+                  <div className="aspect-14/10 overflow-hidden relative group">
                     
                     {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-linear-to-b from-slate-950/90 via-transparent to-transparent pointer-events-none" />
-                    <img 
-                      src={p.image} 
-                      alt={p.title} 
-                      className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700"
-                      referrerPolicy="no-referrer"
-                    />
+                    
+                    {/* Current Media Display */}
+                    {(() => {
+                      const currentMedia = getCurrentMedia(p.id, p);
+                      return currentMedia.type === 'video' && currentMedia.src ? (
+                        <video
+                          src={currentMedia.src}
+                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700"
+                          controls
+                        />
+                      ) : (
+                        <img 
+                          src={currentMedia.src} 
+                          alt={p.title} 
+                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700"
+                          referrerPolicy="no-referrer"
+                        />
+                      );
+                    })()}
                     
                     {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent pointer-events-none" />
 
+                    {/* Image Navigation Controls - For all projects with multiple media */}
+                    {getProjectMedia(p).length > 1 && (
+                      <div className="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto">
+                        <button
+                          onClick={() => goToPrevMedia(p.id, p)}
+                          className="p-2 rounded-full bg-black/60 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
+                          title="Previous"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => goToNextMedia(p.id, p)}
+                          className="p-2 rounded-full bg-black/60 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
+                          title="Next"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Media Counter and Indicator - For all projects with multiple media */}
+                    {getProjectMedia(p).length > 1 && (
+                      <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                        <div className="flex gap-1">
+                          {getProjectMedia(p).map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => setImageIndex(prev => ({ ...prev, [p.id]: idx }))}
+                              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                                idx === (imageIndex[p.id] || 0)
+                                  ? 'bg-amber-400 w-4'
+                                  : 'bg-white/40 w-2 hover:bg-white/60'
+                              }`}
+                              title={`${getProjectMedia(p)[idx].type === 'video' ? 'Video' : 'Image'} ${idx + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Left Tag: Project status badge */}
                     <div className="absolute top-4 left-4 flex gap-2">
-                          
-                      <span className="p-2 bg-amber-900/80 border-amber-300/90 text-amber-400 py-1 text-[9px] font-bold uppercase tracking-wider  rounded-lg border " >
+                      <span className={`p-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-lg border ${
+                        p.status === 'HAJOKA'
+                          ? 'bg-amber-500/90 border-amber-300 text-slate-950 shadow-lg shadow-amber-500/50'
+                          : 'bg-amber-900/80 border-amber-300/90 text-amber-400'
+                      }`} >
                         {p.status}
                       </span>
                     </div>

@@ -36,6 +36,7 @@ export default function HajoContact({ darkMode }: HajoContactProps) {
       icon: <Phone className="h-4 w-4 text-amber-500" />,
       title: 'Call Direct / Piga Simu',
       detail1: '+255 (0) 763 778 863',
+      detail2: '+255 (0) 740 055 333',
     },
     {
       icon: <Mail className="h-4 w-4 text-amber-500" />,

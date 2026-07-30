@@ -5,6 +5,9 @@ import processPlantImg from '../../assets/Process-Plant-North.webp';
 import structuralTanksImg from '../../assets/Structural-tanks-corosion-control.webp';
 import sewageImg from '../../assets/sewage-hydrocarbon-control.webp';
 import craneSteelImg from '../../assets/Crane-Steel-Structure-Assembling.webp';
+import ZongoMeloImg from "../../assets/ZongoMelo.jpeg"
+import ZongoMeloImg1 from "../../assets/ZongoMelo2.jpeg"
+import ZongoMeloImg2 from "../../assets/ZongoMelo2.jpeg"
 
 export const HAJO_SERVICES: HajoService[] = [
   {
@@ -66,14 +69,32 @@ export const HAJO_SERVICES: HajoService[] = [
 ];
 
 export const HAJO_PROJECTS: HajoProject[] = [
-  {
+    {
     id: 'proj-1',
+    title: 'Aggregates Rock Crusher Project',
+    location: 'ZongoMela Kahama',
+    category: 'building',
+    year: 'Current',
+    status: 'HAJOKA',
+    image: ZongoMeloImg,
+    image2: ZongoMeloImg1,
+    image3: ZongoMeloImg2,
+    video: "",
+    scope: [
+      'Project On Going',
+    ]
+  },
+  {
+    id: 'proj-2',
     title: 'Construction Of A Batch Plant',
     location: 'Geita Gold Mine',
     category: 'building',
     year: '2023',
     status: 'AnglogoldAshanti',
     image: batchPlantImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -82,13 +103,16 @@ export const HAJO_PROJECTS: HajoProject[] = [
     ]
   },
   {
-    id: 'proj-2',
+    id: 'proj-3',
     title: 'Road formation & Maintenance',
     location: 'Kahama & Ushetu Districts',
     category: 'roads',
     year: '2026',
     status: 'Tarura',
     image: roadFormationImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       '45km Asphalt Paving & Shoulder Widening',
       'Installation of 12 Major Double Box Culverts',
@@ -97,13 +121,16 @@ export const HAJO_PROJECTS: HajoProject[] = [
     ]
   },
   {
-    id: 'proj-3',
+    id: 'proj-4',
     title: 'Plant Structural Refurbishment',
     location: 'Bulyanhulu Gold Mine',
     category: 'building',
     year: '2025',
     status: 'Acacia',
     image: processPlantImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       '120ft Batch Plant High-end Frame',
       'Custom Sun-Shading African Motif Screen',
@@ -113,13 +140,16 @@ export const HAJO_PROJECTS: HajoProject[] = [
   },
 
     {
-    id: 'proj-4',
+    id: 'proj-5',
     title: 'Structural & Tanks Corosion',
     location: 'Buzwagi Gold Mine',
     category: 'water',
     year: '2024',
     status: 'Acacia',
     image: structuralTanksImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       'Main Water Control For Sanitary and Saftey',
       '2-Million Litre Reinforced Concrete Reservoir -- Ref',
@@ -128,13 +158,16 @@ export const HAJO_PROJECTS: HajoProject[] = [
     ]
   },
   {
-    id: 'proj-5',
+    id: 'proj-6',
     title: 'Sewage & Hydrocarbon',
     location: 'Bulyanhulu Gold Mine',
     category: 'water',
     year: '2022',
     status: 'Acacia',
     image: sewageImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       '100km Sewage and waste water Pipeline',
       'Solar-Powered Intake Station with telemetry controls',
@@ -142,13 +175,16 @@ export const HAJO_PROJECTS: HajoProject[] = [
     ]
   },
   {
-    id: 'proj-6',
+    id: 'proj-7',
     title: 'Crane Steel Structure Assembling',
     location: 'Bulyanhulu Gold Mine',
     category: 'building',
     year: '2020',
     status: 'Acacia',
     image: craneSteelImg,
+        image2: "",
+    image3: "",
+    video: "",
     scope: [
       '1000-ton Crane Steel Structure Assembling',
       'Heavy machinery and equipment installation',

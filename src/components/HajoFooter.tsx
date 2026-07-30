@@ -90,11 +90,15 @@ export default function HajoFooter({ darkMode, setActiveSection }: HajoFooterPro
             <ul className="space-y-3 text-xs font-mono">
               <li className="flex items-start gap-2">
                 <span className="text-amber-500">📍 </span>
-                <span> P.O Box 1013 Mwendakulima, D4N Building, KAHAMA</span>
+                <span> P.O Box 1013 NYASUBI, KAHAMA</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500">📞</span>
-                <span>+255 763 778 863</span>
+                <span>+255 763 778 863</span> 
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500">📞</span>
+                <span>+255 740 055 333</span> 
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500">✉</span>
