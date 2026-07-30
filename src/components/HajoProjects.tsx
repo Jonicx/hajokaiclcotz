@@ -11,6 +11,8 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
   const [filter, setFilter] = useState<string>('all');
   const [selectedProj, setSelectedProj] = useState<string | null>(null);
   const [imageIndex, setImageIndex] = useState<{[key: string]: number}>({});
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   // Simple simulator state
   const [simSector, setSimSector] = useState<'roads' | 'building' | 'water'>('roads');
@@ -53,6 +55,30 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
       ...prev,
       [projectId]: (prev[projectId] || 0) - 1 < 0 ? media.length - 1 : (prev[projectId] || 0) - 1
     }));
+  };
+
+  // Handle touch swipe gestures
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent, projectId: string, project: typeof HAJO_PROJECTS[0]) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    handleSwipe(touchStart, e.changedTouches[0].clientX, projectId, project);
+  };
+
+  const handleSwipe = (start: number | null, end: number, projectId: string, project: typeof HAJO_PROJECTS[0]) => {
+    if (!start) return;
+    
+    const distance = start - end;
+    const isLeftSwipe = distance > 50; // swipe left = next image
+    const isRightSwipe = distance < -50; // swipe right = previous image
+    
+    if (isLeftSwipe) {
+      goToNextMedia(projectId, project);
+    } else if (isRightSwipe) {
+      goToPrevMedia(projectId, project);
+    }
   };
 
   // Simulator logic (completely client-side and immediate)
@@ -143,10 +169,14 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                   }`}
                 >
                   {/* Card Image Stage */}
-                  <div className="aspect-14/10 overflow-hidden relative group">
+                  <div 
+                    className="aspect-14/10 overflow-hidden relative group cursor-grab active:cursor-grabbing select-none"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={(e) => handleTouchEnd(e, p.id, p)}
+                  >
                     
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-linear-to-b from-slate-950/90 via-transparent to-transparent pointer-events-none" />
+                    {/* Dark gradient overlay - top */}
+                    <div className="absolute inset-0 bg-linear-to-b from-slate-950/90 via-transparent to-transparent pointer-events-none z-0" />
                     
                     {/* Current Media Display */}
                     {(() => {
@@ -154,35 +184,35 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                       return currentMedia.type === 'video' && currentMedia.src ? (
                         <video
                           src={currentMedia.src}
-                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700"
+                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700 relative z-0"
                           controls
                         />
                       ) : (
                         <img 
                           src={currentMedia.src} 
                           alt={p.title} 
-                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700"
+                          className="object-cover w-full h-full transform hover:scale-104 transition-all duration-700 relative z-0"
                           referrerPolicy="no-referrer"
                         />
                       );
                     })()}
                     
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent pointer-events-none" />
+                    {/* Dark gradient overlay - bottom */}
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent pointer-events-none z-10" />
 
                     {/* Image Navigation Controls - For all projects with multiple media */}
                     {getProjectMedia(p).length > 1 && (
-                      <div className="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto">
+                      <div className="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto z-20">
                         <button
                           onClick={() => goToPrevMedia(p.id, p)}
-                          className="p-2 rounded-full bg-black/60 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
+                          className="p-2 rounded-full bg-black/80 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
                           title="Previous"
                         >
                           <ChevronLeft className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => goToNextMedia(p.id, p)}
-                          className="p-2 rounded-full bg-black/60 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
+                          className="p-2 rounded-full bg-black/80 text-white hover:bg-amber-500 transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-amber-500"
                           title="Next"
                         >
                           <ChevronRight className="h-4 w-4" />
@@ -192,7 +222,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
 
                     {/* Media Counter and Indicator - For all projects with multiple media */}
                     {getProjectMedia(p).length > 1 && (
-                      <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                      <div className="absolute bottom-4 right-4 flex items-center gap-2 z-20">
                         <div className="flex gap-1">
                           {getProjectMedia(p).map((_, idx) => (
                             <button
@@ -211,7 +241,7 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                     )}
 
                     {/* Left Tag: Project status badge */}
-                    <div className="absolute top-4 left-4 flex gap-2">
+                    <div className="absolute top-4 left-4 flex gap-2 z-30">
                       <span className={`p-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-lg border ${
                         p.status === 'HAJOKA'
                           ? 'bg-amber-500/90 border-amber-300 text-slate-950 shadow-lg shadow-amber-500/50'
@@ -222,14 +252,14 @@ export default function HajoProjects({ darkMode }: HajoProjectsProps) {
                     </div>
 
                     {/* Right Tag: Category badge */}
-                    <div className="absolute top-4 right-4">
+                    <div className="absolute top-4 right-4 z-30">
                       <span className="px-2 py-0.5 rounded-md bg-slate-950/80 text-white font-mono text-[9px] uppercase tracking-wider border border-white/10">
                         {p.category}
                       </span>
                     </div>
 
                     {/* Inside image bottom caption */}
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-4 left-4 right-4 z-20">
                       <div className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px]">
                         <MapPin className="h-3 w-3" />
                         <span>{p.location}</span>

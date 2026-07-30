@@ -6,8 +6,9 @@ import structuralTanksImg from '../../assets/Structural-tanks-corosion-control.w
 import sewageImg from '../../assets/sewage-hydrocarbon-control.webp';
 import craneSteelImg from '../../assets/Crane-Steel-Structure-Assembling.webp';
 import ZongoMeloImg from "../../assets/ZongoMelo.jpeg"
-import ZongoMeloImg1 from "../../assets/ZongoMelo2.jpeg"
+import ZongoMeloImg1 from "../../assets/ZongoMelo1.jpeg"
 import ZongoMeloImg2 from "../../assets/ZongoMelo2.jpeg"
+import ZongomeloImg3 from "../../assets/zongoMelo3.jpeg"
 
 export const HAJO_SERVICES: HajoService[] = [
   {
@@ -79,6 +80,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: ZongoMeloImg,
     image2: ZongoMeloImg1,
     image3: ZongoMeloImg2,
+    image4: ZongomeloImg3,
     video: "",
     scope: [
       'Project On Going',
@@ -94,6 +96,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: batchPlantImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       '120ft Batch Plant High-end Frame',
@@ -112,6 +115,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: roadFormationImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       '45km Asphalt Paving & Shoulder Widening',
@@ -130,6 +134,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: processPlantImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       '120ft Batch Plant High-end Frame',
@@ -149,6 +154,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: structuralTanksImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       'Main Water Control For Sanitary and Saftey',
@@ -167,6 +173,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: sewageImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       '100km Sewage and waste water Pipeline',
@@ -184,6 +191,7 @@ export const HAJO_PROJECTS: HajoProject[] = [
     image: craneSteelImg,
         image2: "",
     image3: "",
+    image4: "",
     video: "",
     scope: [
       '1000-ton Crane Steel Structure Assembling',

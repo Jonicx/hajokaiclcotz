@@ -1,6 +1,9 @@
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import processPlant from "../../assets/Process-Plant-North.webp";
+import ZongoMeloImg from "../../assets/ZongoMelo.jpeg"
+import ZongoMeloImg1 from "../../assets/ZongoMelo1.jpeg"
+import ZongoMeloImg2 from "../../assets/ZongoMelo2.jpeg"
 
 interface HajoHeroProps {
   darkMode: boolean;
@@ -179,7 +182,7 @@ const itemVariants: Variants = {
               }`}>
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-                  <span>Plant Structural Refurbishment</span>
+                  <span>ZongoMela Kahama</span>
                 </div>
                 <span>Reg: CRB #C5/823/10/2015</span>
               </div>
@@ -187,8 +190,8 @@ const itemVariants: Variants = {
               {/* Main Image Stage */}
               <div className="aspect-4/3 w-full overflow-hidden relative rounded-xl">
                 <img 
-                  src={processPlant} 
-                  alt="HAJOKA ICL processing Plant Structural Refurbishment, Bulyanhulu Gold Mine (Acacia), picture taken on site in Tanzania" 
+                  src={ZongoMeloImg1} 
+                  alt="ZongoMela Kahama, picture taken on site in Tanzania" 
                   className="object-cover w-full h-full transform hover:scale-102 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -199,11 +202,11 @@ const itemVariants: Variants = {
                 {/* Floating Swahili project caption over the image */}
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-950/90 backdrop-blur-xs border border-amber-500/20 text-white flex justify-between items-center">
                   <div>
-                    <span className="block font-mono text-[8px] uppercase tracking-wider text-amber-400">Bulyanhulu Gold Mine </span>
-                    <h3 className="font-display font-extrabold text-sm tracking-tight text-white">Plant Structural Refurbishment</h3>
+                    <span className="block font-mono text-[8px] uppercase tracking-wider text-amber-400">ZongoMela Kahama</span>
+                    <h3 className="font-display font-extrabold text-sm tracking-tight text-white">Aggregates Rock Crusher Project</h3>
                   </div>
                   <span className="text-[10px] font-mono bg-amber-500/25 text-amber-400 border border-amber-500/35 px-2 py-0.5 rounded uppercase font-bold">
-                    Acacia
+                    HAJOKA
                   </span>
                 </div>
               </div>

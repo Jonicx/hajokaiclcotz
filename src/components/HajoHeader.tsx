@@ -139,9 +139,9 @@ export default function HajoHeader({ darkMode, setDarkMode, activeSection, setAc
               <span>KAHAMA</span>
             </div>
 
-            <button onClick={() => setDarkMode(!darkMode)} className={`p-2.5 rounded-xl border transition-all duration-300 cursor-pointer ${darkMode ? 'bg-slate-900 border-slate-800 text-amber-400 hover:bg-slate-800/80' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'}`} aria-label="Toggle Theme">
+            {/* <button onClick={() => setDarkMode(!darkMode)} className={`p-2.5 rounded-xl border transition-all duration-300 cursor-pointer ${darkMode ? 'bg-slate-900 border-slate-800 text-amber-400 hover:bg-slate-800/80' : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'}`} aria-label="Toggle Theme">
               {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+            </button> */}
 
             <button type="button" onClick={() => handleNavSelect('contact')} className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-sans text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all active:scale-95 cursor-pointer">
               Request Bid
@@ -150,9 +150,9 @@ export default function HajoHeader({ darkMode, setDarkMode, activeSection, setAc
 
           {/* MOBILE: Menu Trigger Button */}
           <div className="flex md:hidden items-center gap-2">
-            <button onClick={() => setDarkMode(!darkMode)} className={`p-2 rounded-lg border ${darkMode ? 'bg-slate-900 border-slate-800 text-amber-400' : 'bg-slate-50 border-slate-200 text-slate-600'}`} aria-label="Toggle Theme">
+            {/* <button onClick={() => setDarkMode(!darkMode)} className={`p-2 rounded-lg border ${darkMode ? 'bg-slate-900 border-slate-800 text-amber-400' : 'bg-slate-50 border-slate-200 text-slate-600'}`} aria-label="Toggle Theme">
               {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+            </button> */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
               className={`p-2 rounded-lg border transition-all ${darkMode ? 'border-slate-800 text-slate-400 bg-slate-900' : 'border-slate-200 text-slate-600 bg-slate-50'}`}
